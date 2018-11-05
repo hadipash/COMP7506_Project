@@ -3,15 +3,20 @@ package hk.hku.cs.comp7506_project;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private static final String TAG = "NewsAdapter";
+    private NewsObject[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        public final TextView title;
+        public final TextView content;
+        public final ImageView pic;
 
         public ViewHolder(View v) {
             super(v);
@@ -22,27 +27,33 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                     Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
                 }
             });
-            textView = (TextView) v.findViewById(R.id.news_title);
+            title = v.findViewById(R.id.news_title);
+            content = v.findViewById(R.id.news_content);
+            pic = v.findViewById(R.id.news_img);
         }
+    }
 
-        public TextView getTextView() {
-            return textView;
-        }
+    NewsAdapter(NewsObject[] dataSet){
+        data = dataSet;
     }
 
     @NonNull
     @Override
-    public NewsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public NewsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.news_card, viewGroup, false);
+        return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsAdapter.ViewHolder myViewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull NewsAdapter.ViewHolder holder, int position) {
+        holder.title.setText(data[position].getTitle());
+        holder.content.setText(data[position].getContent());
+//        holder.pic.setImageBitmap(data[position].getPic());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.length;
     }
 }
