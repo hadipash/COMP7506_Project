@@ -21,6 +21,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Forum"
+        android:onClick="openForum"
         app:layout_constraintBottom_toTopOf="@id/wiki_button"
         app:layout_constraintTop_toBottomOf="@id/news_button" />
 
