@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import hk.hku.cs.comp7506_project.News.NewsFeed;
+
 public class MainActivity extends Activity {
 
     @Override

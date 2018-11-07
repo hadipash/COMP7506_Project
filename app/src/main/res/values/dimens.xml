@@ -4,4 +4,5 @@
     <dimen name="card_radius">5dp</dimen>
     <dimen name="card_elevation">5dp</dimen>
     <dimen name="card_content_padding">5dp</dimen>
+    <dimen name="card_height">100dp</dimen>
 </resources>

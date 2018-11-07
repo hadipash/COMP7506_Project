@@ -1,11 +1,11 @@
-package hk.hku.cs.comp7506_project;
+package hk.hku.cs.comp7506_project.News;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
+import hk.hku.cs.comp7506_project.R;
 
 public class NewsFeed extends Activity {
     private RecyclerView mRecyclerView;

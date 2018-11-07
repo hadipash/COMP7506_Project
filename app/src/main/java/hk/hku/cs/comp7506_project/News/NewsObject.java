@@ -1,4 +1,4 @@
-package hk.hku.cs.comp7506_project;
+package hk.hku.cs.comp7506_project.News;
 
 import android.graphics.Bitmap;
 
