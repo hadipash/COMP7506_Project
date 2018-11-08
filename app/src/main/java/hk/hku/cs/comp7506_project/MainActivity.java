@@ -1,14 +1,14 @@
 package hk.hku.cs.comp7506_project;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
 import hk.hku.cs.comp7506_project.Forum.Forum;
 import hk.hku.cs.comp7506_project.News.NewsFeed;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
