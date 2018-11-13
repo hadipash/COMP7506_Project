@@ -2,6 +2,8 @@ package hk.hku.cs.comp7506_project.News;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,7 @@ import hk.hku.cs.comp7506_project.R;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private static final String TAG = "NewsAdapter";
-    private NewsObject[] data;
+    private static NewsObject[] data;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView title;
@@ -22,20 +24,24 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         public ViewHolder(View v) {
             super(v);
-            // Define click listener for the ViewHolder's View.
+
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    Intent intent = new Intent(v.getContext(), NewsPage.class);
+                    intent.putExtra("data", data[getAdapterPosition()]);
+                    v.getContext().startActivity(intent);
                 }
             });
+
             title = v.findViewById(R.id.news_title);
             content = v.findViewById(R.id.news_content);
             pic = v.findViewById(R.id.news_img);
         }
     }
 
-    NewsAdapter(NewsObject[] dataSet){
+    public NewsAdapter(NewsObject[] dataSet){
         data = dataSet;
     }
 
@@ -51,7 +57,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull NewsAdapter.ViewHolder holder, int position) {
         holder.title.setText(data[position].getTitle());
         holder.content.setText(data[position].getContent());
-//        holder.pic.setImageBitmap(data[position].getPic());
+        holder.pic.setImageBitmap(data[position].getPic());
     }
 
     @Override

@@ -12,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:text="News Feed"
-        android:onClick="OpenNewsFeed"/>
+        android:onClick="openNewsFeed"/>
 
     <Button
         android:id="@+id/forum_button"

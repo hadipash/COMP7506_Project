@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void OpenNewsFeed(View view) {
+    public void openNewsFeed(View view) {
         Intent intent = new Intent(this, NewsFeed.class);
         startActivity(intent);
     }
