@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".News.NewsFeed" />
-        <activity android:name=".News.NewsPage"></activity>
+        <activity android:name=".News.NewsPage" />
         <activity android:name=".Forum.Forum" />
     </application>
 
