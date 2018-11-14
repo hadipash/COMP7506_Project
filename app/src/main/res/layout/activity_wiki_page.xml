@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.FitWindowsLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Wiki.WikiPage"
+    android:background="@drawable/popupwindow_background">
+
+    <TextView
+        android:id="@+id/wikiKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:paddingBottom="20dp"/>
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/wikiView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1"
+            android:layout_margin="10dp"
+            android:paddingBottom="20dp"/>
+    </ScrollView>
+</androidx.appcompat.widget.FitWindowsLinearLayout>
+
+
+
+
+

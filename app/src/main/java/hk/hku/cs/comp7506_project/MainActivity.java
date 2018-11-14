@@ -25,6 +25,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import hk.hku.cs.comp7506_project.Forum.Forum;
 import hk.hku.cs.comp7506_project.News.NewsFeed;
+import hk.hku.cs.comp7506_project.Wiki.WikiPage;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -158,4 +159,18 @@ public class MainActivity extends AppCompatActivity
         Intent intent2 = new Intent(this, Forum.class);
         startActivity(intent2);
     }
+<<<<<<< Updated upstream
+=======
+
+    public void testWiki(View view)
+    {
+        WikiPage wiki = new WikiPage();
+        String word = "IBM";
+
+        wiki.popItUp(word, MainActivity.this, view);
+
+
+    }
+
+>>>>>>> Stashed changes
 }
