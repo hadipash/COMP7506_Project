@@ -83,6 +83,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_wiki:
                 Log.d(TAG, "Wiki menu clicked.");
                 // TODO: wiki
+                WikiPage wiki = new WikiPage();
+                String word = "IBM";
+
+                wiki.popItUp(word, MainActivity.this,
+                        getWindow().getDecorView().getRootView());
                 break;
         }
 
@@ -154,21 +159,8 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void openForum(View view)
-    {
-        Intent intent2 = new Intent(this, Forum.class);
-        startActivity(intent2);
+    public void openForum(View view) {
+        Intent intent = new Intent(this, Forum.class);
+        startActivity(intent);
     }
-
-
-    public void testWiki(View view)
-    {
-        WikiPage wiki = new WikiPage();
-        String word = "IBM";
-
-        wiki.popItUp(word, MainActivity.this, view);
-
-
-    }
-
 }
