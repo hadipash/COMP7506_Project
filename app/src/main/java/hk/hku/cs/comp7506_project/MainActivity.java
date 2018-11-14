@@ -159,8 +159,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent2 = new Intent(this, Forum.class);
         startActivity(intent2);
     }
-<<<<<<< Updated upstream
-=======
+
 
     public void testWiki(View view)
     {
@@ -172,5 +171,4 @@ public class MainActivity extends AppCompatActivity
 
     }
 
->>>>>>> Stashed changes
 }
