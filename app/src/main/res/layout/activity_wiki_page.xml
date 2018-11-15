@@ -2,10 +2,10 @@
 <androidx.appcompat.widget.FitWindowsLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".Wiki.WikiPage"
-    android:background="@drawable/popupwindow_background">
+    android:background="@drawable/rounded_corner_bg">
 
     <TextView
         android:id="@+id/wikiKey"
@@ -13,21 +13,37 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textStyle="bold"
+        android:textColor="#000000"
         android:layout_margin="10dp"
         android:paddingBottom="20dp"/>
 
     <ScrollView
         android:layout_height="match_parent"
         android:layout_width="match_parent">
-        <TextView
-            android:id="@+id/wikiView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1"
-            android:layout_margin="10dp"
-            android:paddingBottom="20dp"/>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/wikiView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1"
+                android:textColor="#000000"
+                android:layout_margin="10dp"
+                android:paddingBottom="20dp"/>
+            <TextView
+                android:id="@+id/wikiMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:gravity="right"
+                android:textColor="#0000FF"
+                android:layout_margin="10dp"
+                android:paddingBottom="20dp"/>
+        </LinearLayout>
     </ScrollView>
 </androidx.appcompat.widget.FitWindowsLinearLayout>
 

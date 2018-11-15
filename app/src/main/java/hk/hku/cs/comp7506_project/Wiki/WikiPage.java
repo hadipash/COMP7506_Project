@@ -1,6 +1,7 @@
 package hk.hku.cs.comp7506_project.Wiki;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 
@@ -24,12 +25,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import androidx.appcompat.app.AppCompatActivity;
-import hk.hku.cs.comp7506_project.MainActivity;
 import hk.hku.cs.comp7506_project.R;
 
 public class WikiPage extends AppCompatActivity{
-    TextView tvKey;
-    TextView tvResponse;
+    TextView tvTitle;
+    TextView tvText;
+    TextView tvMore;
 
 
     public void popItUp(String word, Context mContext, View view) {
@@ -38,10 +39,11 @@ public class WikiPage extends AppCompatActivity{
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View popupView = inflater.inflate(R.layout.activity_wiki_page, null);
 
-        tvKey = popupView.findViewById(R.id.wikiKey);
-        tvResponse =  popupView.findViewById(R.id.wikiView);
+        tvTitle = popupView.findViewById(R.id.wikiKey);
+        tvText =  popupView.findViewById(R.id.wikiView);
+        tvMore =  popupView.findViewById(R.id.wikiMore);
 
-        tvKey.setText(word);
+
         new HttpAsyncTask().execute("https://en.wikipedia.org/w/api.php?" +
                 "format=json" +
                 "&action=query" +
@@ -54,11 +56,12 @@ public class WikiPage extends AppCompatActivity{
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
 //        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, 200, focusable);
+        final PopupWindow popupWindow = new PopupWindow(popupView, 400, 250, focusable);
 
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         popupWindow.setAnimationStyle(R.style.popup_window_animation_phone);
+
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
         popupWindow.showAtLocation(view, Gravity.TOP, 0, 100);
@@ -66,7 +69,7 @@ public class WikiPage extends AppCompatActivity{
     }
 
 
-    //quoted by doInBackground()
+    //called by doInBackground()
     public static String GET(String url){
 
         String result = "";
@@ -90,7 +93,7 @@ public class WikiPage extends AppCompatActivity{
         return result;
     }
 
-    // quoted by GET()
+    // called by GET()
     private static String convertInputStreamToString(InputStream inputStream) throws IOException {
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
@@ -114,41 +117,68 @@ public class WikiPage extends AppCompatActivity{
         protected void onPostExecute(String result) {
 
             //Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_SHORT).show();
-            String UN="",PW="",user="",wikiText="";
+            String wikiText = "";
+            String wikiTextShow = "";
+            String wikiTitle = "";
             try {
+
                 JSONObject json = new JSONObject(result); // convert String to JSONObject
-                //JSONArray articles = json.getJSONArray("array"); // get articles array
+
                 JSONObject query = json.getJSONObject("query");
                 JSONObject pages = query.getJSONObject("pages");
-                //user=pages.toString();
+
 
                 String[] str_array = pages.toString().substring(0,20).split(":");
                 String string1 = str_array[0];
                 String pageid=string1.substring(2, string1.length()-1);
-                //user=string1+"\n"+pageid;
 
 
                 JSONObject page = pages.getJSONObject(pageid);
 
-                wikiText=(String) page.get("extract");
+                wikiTitle = (String) page.get("title");
+                wikiText = (String) page.get("extract");
+
                 String[] str_array2 = wikiText.split("==");
-                wikiText="";
-                for(String temp:str_array2)
-                {
-                    wikiText=wikiText+"\n-----------------------------------------------\n"+temp.trim();
-                }
+
 
                 if(!wikiText.isEmpty())
                 {
-                    tvResponse.setText(wikiText.trim());
+                    wikiTextShow =  str_array2[0];
 
+                    tvTitle.setText(wikiTitle.trim());
+                    tvText.setText(wikiTextShow);
+                    tvMore.setText("more");
+                    tvMore.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
                 }
                 else
-                    tvResponse.setText("No Result Found");
+                    tvText.setText("Sorry, No Result Found");
+
+                // Detect the lines number of the page
+                tvText.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int lines = tvText.getLineCount();
+                        tvMore.setVisibility(View.GONE);
+                        if (lines > 8) {
+                            tvText.setMaxLines(8);
+                            tvMore.setVisibility(View.VISIBLE);
+
+                            // Click "more"
+                            tvMore.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    tvMore.setVisibility(View.GONE);
+                                    tvText.setMaxLines(Integer.MAX_VALUE);
+                                }
+                            });
+                        }
+                    }
+                });
+
             }
             catch(JSONException e)
             {
-                tvResponse.setText(e.toString());
+                tvText.setText(e.toString());
                 //Toast.makeText(getBaseContext(), "JSONException!", Toast.LENGTH_SHORT).show();
             }
         }
