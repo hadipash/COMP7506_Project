@@ -19,9 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".News.NewsFeed" />
         <activity android:name=".News.NewsPage" />
-        <activity android:name=".Forum.Forum" />
         <activity
             android:name=".Wiki.WikiPage"
             android:label="@string/title_activity_wiki_page"

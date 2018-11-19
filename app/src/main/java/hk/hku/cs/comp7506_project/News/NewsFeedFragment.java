@@ -3,31 +3,38 @@ package hk.hku.cs.comp7506_project.News;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import hk.hku.cs.comp7506_project.R;
 
-public class NewsFeed extends AppCompatActivity {
+public class NewsFeedFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_feed);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_main_news, container, false);
 
-        mRecyclerView = findViewById(R.id.news_recycle_view);
+        mRecyclerView = rootView.findViewById(R.id.news_recycle_view);
         mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new LinearLayoutManager(rootView.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mAdapter = new NewsAdapter(generateData());
         mRecyclerView.setAdapter(mAdapter);
+
+        return rootView;
     }
 
     private NewsObject[] generateData(){
