@@ -1,5 +1,6 @@
 package hk.hku.cs.comp7506_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -74,15 +75,20 @@ public class MainActivity extends AppCompatActivity
                 Log.d(TAG, "Calculator menu clicked");
                 // TODO: calculator
                 break;
-            case R.id.nav_wiki:
-                Log.d(TAG, "Wiki menu clicked.");
+            case R.id.test_wiki:
+                Log.d(TAG, "TestWiki menu clicked.");
                 // TODO: wiki
                 WikiPage wiki = new WikiPage();
-                String word = "IBM";
+                String word = "apple";
 
                 wiki.popItUp(word, MainActivity.this,
                         getWindow().getDecorView().getRootView());
                 break;
+//            case R.id.nav_wiki:
+//                Log.d(TAG, "WikiBook menu clicked.");
+//                Intent intent = new Intent(this, WikiTerm.class);
+//                startActivity(intent);
+
         }
 
         drawer.closeDrawer(GravityCompat.START);

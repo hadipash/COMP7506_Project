@@ -23,7 +23,7 @@
         <activity
             android:name=".Wiki.WikiPage"
             android:label="@string/title_activity_wiki_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

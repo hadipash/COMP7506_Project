@@ -6,9 +6,14 @@
         android:id="@+id/nav_calc"
         android:icon="@drawable/baseline_cached_24"
         android:title="@string/calculator"/>
+
     <item
         android:id="@+id/nav_wiki"
         android:icon="@drawable/baseline_book_24"
         android:title="@string/financial_wiki"/>
+    <item
+        android:id="@+id/test_wiki"
+        android:title="test_wiki"/>
+
 
 </menu>

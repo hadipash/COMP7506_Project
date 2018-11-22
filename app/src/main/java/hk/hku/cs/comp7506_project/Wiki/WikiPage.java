@@ -2,15 +2,15 @@ package hk.hku.cs.comp7506_project.Wiki;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -52,19 +52,23 @@ public class WikiPage extends AppCompatActivity{
                 "&titles="+word);
 
 
-        // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-//        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, 400, 250, focusable);
+        // get the width & height of the screen
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        int width = outMetrics.widthPixels;
+        int height = outMetrics.heightPixels;
 
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width - 200, (int)(0.25*height), focusable);
+
+        //popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
         popupWindow.setAnimationStyle(R.style.popup_window_animation_phone);
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
-        popupWindow.showAtLocation(view, Gravity.TOP, 0, 100);
+        popupWindow.showAtLocation(view, Gravity.TOP, 0, 150);
 
     }
 
@@ -81,8 +85,10 @@ public class WikiPage extends AppCompatActivity{
             InputStream is = urlConnection.getInputStream();
 
             // convert inputstream to string
-            if(is != null)
+            if(is != null) {
                 result = convertInputStreamToString(is);
+                Log.d("InputStream", "Received");
+            }
             else
                 result = "Did not work!";
 
@@ -184,4 +190,3 @@ public class WikiPage extends AppCompatActivity{
         }
     }
 }
-
