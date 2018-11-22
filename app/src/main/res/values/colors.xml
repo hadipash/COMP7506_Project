@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="title">#303030</color>
+
+    <color name="main_text_color">#ffffff</color>
+    <color name="chart_background">#ffffff</color>
 </resources>

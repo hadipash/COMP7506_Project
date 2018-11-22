@@ -24,6 +24,7 @@
             android:name=".Wiki.WikiPage"
             android:label="@string/title_activity_wiki_page"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Wiki.StockLine"></activity>
     </application>
 
 </manifest>

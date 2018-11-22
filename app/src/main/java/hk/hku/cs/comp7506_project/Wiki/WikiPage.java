@@ -60,7 +60,7 @@ public class WikiPage extends AppCompatActivity{
         int height = outMetrics.heightPixels;
 
         boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width - 200, (int)(0.25*height), focusable);
+        final PopupWindow popupWindow = new PopupWindow(popupView, (int)(0.8*width), (int)(0.25*height), focusable);
 
         //popupWindow.setBackgroundDrawable(new BitmapDrawable());
 
@@ -68,7 +68,7 @@ public class WikiPage extends AppCompatActivity{
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
-        popupWindow.showAtLocation(view, Gravity.TOP, 0, 150);
+        popupWindow.showAtLocation(view, Gravity.TOP, 0, (int)(0.1*height));
 
     }
 

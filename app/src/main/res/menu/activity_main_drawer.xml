@@ -8,9 +8,14 @@
         android:title="@string/calculator"/>
 
     <item
-        android:id="@+id/nav_wiki"
+        android:id="@+id/nav_stock"
+        android:icon="@drawable/baseline_equalizer_black_24dp"
+        android:title="@string/Stocks_line"/>
+    <item
+        android:id="@+id/nav_book"
         android:icon="@drawable/baseline_book_24"
-        android:title="@string/financial_wiki"/>
+        android:title="@string/Fin_book"/>
+
     <item
         android:id="@+id/test_wiki"
         android:title="test_wiki"/>

@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import hk.hku.cs.comp7506_project.Forum.ForumFragment;
 import hk.hku.cs.comp7506_project.News.NewsFeedFragment;
+import hk.hku.cs.comp7506_project.Wiki.StockLine;
 import hk.hku.cs.comp7506_project.Wiki.WikiPage;
 
 public class MainActivity extends AppCompatActivity
@@ -84,10 +85,10 @@ public class MainActivity extends AppCompatActivity
                 wiki.popItUp(word, MainActivity.this,
                         getWindow().getDecorView().getRootView());
                 break;
-//            case R.id.nav_wiki:
-//                Log.d(TAG, "WikiBook menu clicked.");
-//                Intent intent = new Intent(this, WikiTerm.class);
-//                startActivity(intent);
+            case R.id.nav_stock:
+                Log.d(TAG, "WikiBook menu clicked.");
+                Intent intent = new Intent(this, StockLine.class);
+                startActivity(intent);
 
         }
 
