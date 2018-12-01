@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -25,13 +26,13 @@
                 android:id="@+id/tabNews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="News" />
+                android:text="@string/tab_news" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabForum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forum" />
+                android:text="@string/tab_forum" />
 
 
         </com.google.android.material.tabs.TabLayout>

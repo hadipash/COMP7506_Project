@@ -7,6 +7,9 @@
     <string name="Fin_book">Financial book</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_wiki_page">WikiPage</string>
+    <string name="tab_news">News</string>
+    <string name="tab_forum">Forum</string>
+    <string name="news_source">Source:</string>
 
     <string name="refresh">Refresh</string>
     <string name="change_account">Change Account</string>
