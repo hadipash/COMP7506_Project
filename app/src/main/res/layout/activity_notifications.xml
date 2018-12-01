@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="hk.hku.cs.comp7506_project.MainActivity">
+    tools:context="hk.hku.cs.comp7506_project.Forum.NotificationsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -23,6 +23,16 @@
             android:gravity="end"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags="scroll|enterAlways">
+            <ImageButton
+                android:src="@drawable/ic_settings_24dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/title_activity_notifications"
+                android:background="?selectableItemBackground"
+                android:id="@+id/notifications_settings_button" />
         </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout

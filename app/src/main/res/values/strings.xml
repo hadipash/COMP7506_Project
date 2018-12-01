@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COMP7506_Project</string>
+    <string name="app_name">We help you learn :)</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="calculator">Calculator</string>
@@ -7,5 +7,26 @@
     <string name="Fin_book">Financial book</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_wiki_page">WikiPage</string>
+
+    <string name="refresh">Refresh</string>
+    <string name="change_account">Change Account</string>
+    <string name="log_out">Log Out</string>
+    <string name="action_search">Search</string>
+    <string name="action_share">Share</string>
+    <string name="avatar">Avatar</string>
+    <string name="network_error">Network Error</string>
+
+    <string name="news">News</string>
+    <string name="forum">Forum</string>
+
+    <!--TimeUtil Start-->
+    <string name="just_now">top</string>
+    <string name="seconds_ago">seconds ago</string>
+    <string name="minutes_ago">minutes ago</string>
+    <string name="hours_ago">hours ago</string>
+    <string name="days_ago">days ago</string>
+    <!--TimeUtil End-->
+
+    <string name="title_activity_topic">Topic</string>
 
 </resources>
