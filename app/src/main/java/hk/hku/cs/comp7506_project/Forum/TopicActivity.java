@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private Toolbar mToolbar;
-    private TextView mTopicTitle;
+//    private TextView mTopicTitle;
     private RecyclerView mRecyclerView ;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private FloatingActionButton mFloatingActionButton;
@@ -49,6 +49,7 @@ public class TopicActivity extends AppCompatActivity implements SwipeRefreshLayo
     private List<Map<String,Object>> postList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         //注册一个广播用于回复成功时，刷新主题
         IntentFilter intentFilter = new IntentFilter();
