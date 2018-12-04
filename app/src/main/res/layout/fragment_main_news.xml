@@ -12,11 +12,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/top_news"
+            android:textColor="@color/title"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal" />
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/top_news"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="@dimen/card_margin_vert"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recent_stories"
+            android:textColor="@color/title"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="10dp"
+            tools:targetApi="o" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/news_recycle_view"

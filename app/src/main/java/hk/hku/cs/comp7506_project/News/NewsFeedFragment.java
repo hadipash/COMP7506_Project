@@ -1,6 +1,7 @@
 package hk.hku.cs.comp7506_project.News;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import hk.hku.cs.comp7506_project.R;
 public class NewsFeedFragment extends Fragment {
     private static final String TAG = "NewsFeedFragment";
     private final static String URL = "https://i.cs.hku.hk/~rustam/news.php";
+    private final static int TOPNEWSNUM = 3;
 
     @Nullable
     @Override
@@ -29,13 +31,22 @@ public class NewsFeedFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_news, container, false);
 
-        ViewPager mViewPager = rootView.findViewById(R.id.top_news);
-        mViewPager.setOffscreenPageLimit(3);
+        final ViewPager mViewPager = rootView.findViewById(R.id.top_news);
+        mViewPager.setOffscreenPageLimit(TOPNEWSNUM - 1);
         Map<String, String> top_news_params = new HashMap<>();
         top_news_params.put("url", URL);
         top_news_params.put("action", "top_news");
         try {
             mViewPager.setAdapter(new TopNewsAdapter(new JSONRequest().execute(top_news_params).get()));
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mViewPager.setCurrentItem((mViewPager.getCurrentItem() + 1) % TOPNEWSNUM, true);
+                    handler.postDelayed(this, 4000);
+                }
+            }, 4000);
         } catch (ExecutionException | InterruptedException e) {
             Log.e(TAG, "Setting top_news", e);
         }

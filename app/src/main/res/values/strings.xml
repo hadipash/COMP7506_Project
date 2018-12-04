@@ -31,5 +31,7 @@
     <!--TimeUtil End-->
 
     <string name="title_activity_topic">Topic</string>
+    <string name="top_news">Top News</string>
+    <string name="recent_stories">Recent Stories</string>
 
 </resources>
