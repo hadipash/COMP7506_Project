@@ -1,4 +1,4 @@
-# FINKING
+# FinKing
 
 ### Overview
 - Receive latest finace news
