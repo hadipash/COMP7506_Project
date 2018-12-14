@@ -46,6 +46,7 @@ import hk.hku.cs.comp7506_project.Forum.application.CarbonForumApplication;
 import hk.hku.cs.comp7506_project.Forum.config.APIAddress;
 import hk.hku.cs.comp7506_project.Forum.service.PushService;
 import hk.hku.cs.comp7506_project.News.NewsFeedFragment;
+import hk.hku.cs.comp7506_project.Wiki.FinBook;
 import hk.hku.cs.comp7506_project.Wiki.StockLine;
 import hk.hku.cs.comp7506_project.Wiki.WikiPage;
 
@@ -250,43 +251,46 @@ public class MainActivity extends AppCompatActivity {
 //                            } else if (drawerItem.getIdentifier() == 9) {
 //                                intent = new Intent(MainActivity.this, SettingsActivity.class);
 //                            }
+
                             switch (drawerItem.getIdentifier()) {
-                                case 3:
+                                case 3: {
                                     Log.d(TAG, "Calculator menu clicked");
                                     intent = new Intent(MainActivity.this, Calculator.class);
                                     break;
-                                case 4:
+                                }
+                                case 4:{
                                     Log.d(TAG, "WikiBook menu clicked.");
                                     intent = new Intent(MainActivity.this, StockLine.class);
                                     break;
-                                case 5:
-                                    Log.d(TAG, "TestWiki menu clicked.");
-
-                                    // TODO: wiki
-                                    WikiPage wiki = new WikiPage();
-                                    String word = "apple";
-                                    wiki.popItUp(word, MainActivity.this,
-                                            getWindow().getDecorView().getRootView());
+                                }
+                                case 5: {
+                                    Log.d(TAG, "FinBook menu clicked.");
+                                    intent = new Intent(MainActivity.this, FinBook.class);
                                     break;
-                                case 6:
+                                }
+                                case 6: {
                                     intent = new Intent(MainActivity.this, LoginActivity.class);
                                     break;
-                                case 7:
+                                }
+                                case 7: {
                                     intent = new Intent(MainActivity.this, RegisterActivity.class);
                                     break;
-                                case 8:
+                                }
+                                case 8: {
                                     intent = new Intent(MainActivity.this, NotificationsActivity.class);
                                     break;
-                                case 9:
+                                }
+                                case 9: {
                                     intent = new Intent(MainActivity.this, SettingsActivity.class);
                                     break;
+                                }
 
                                 default:
                                     Log.d(TAG, "unknown drawerItem.getIdentifier.");
 //
                             }
                             if (intent != null) {
-                                startActivity(intent);
+                                MainActivity.this.startActivity(intent);
                             }
                         }
 

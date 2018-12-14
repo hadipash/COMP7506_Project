@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Carbon Forum</string>
+    <string name="app_name">FinKing</string>
     <string name="refresh">刷新</string>
     <string name="change_account">更换账户</string>
     <string name="log_out">登出</string>
