@@ -2,6 +2,7 @@ package hk.hku.cs.comp7506_project.News;
 
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -59,6 +60,7 @@ public class NewsPage extends AppCompatActivity {
         final WikiPage wiki = new WikiPage();
         final String[] parsed = content.split(TOKEN);
         boolean clickable = false;
+        SpannableStringBuilder text = new SpannableStringBuilder();
 
         for (String aParsed : parsed){
             if (clickable) {
@@ -72,14 +74,16 @@ public class NewsPage extends AppCompatActivity {
                     }
                 },0, word.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                textView.append(link);
-                textView.setMovementMethod(LinkMovementMethod.getInstance());
+                text.append(link);
                 clickable = false;
             }
             else {
-                textView.append(aParsed);
+                text.append(aParsed);
                 clickable = true;
             }
         }
+
+        textView.setText(text);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

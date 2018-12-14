@@ -2,7 +2,7 @@
     <string name="app_name">We help you learn :)</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="calculator">Calculator</string>
+    <string name="calculator">Financial Calculator</string>
     <string name="Stocks_line">Stocks</string>
     <string name="Fin_book">Financial book</string>
     <string name="section_format">Hello World from section: %1$d</string>
@@ -33,5 +33,27 @@
     <string name="title_activity_topic">Topic</string>
     <string name="top_news">Top News</string>
     <string name="recent_stories">Recent Stories</string>
+    <string name="compute">Compute:</string>
+    <string name="present_value">Present Value, $ (?)</string>
+    <string name="future_value">Future Value, $ (?)</string>
+    <string name="number_of_periods">Number of Periods</string>
+    <string name="payment">Payment</string>
+    <string name="interest_rate">Interest Rate, % (?)</string>
+    <string name="calculate">Calculate</string>
+    <string name="total_interest">Total Interest</string>
+    <string name="period">Number of Periods</string>
+    <string name="clear">Clear</string>
+
+    <!--Calculator spinner-->
+    <string-array name="calc_spinner">
+        <item>Future Value</item>
+        <item>Present Value</item>
+        <item>Interest Rate</item>
+    </string-array>
+    <string-array name="payment_spinner">
+        <item>Monthly</item>
+        <item>Quarterly</item>
+        <item>Yearly</item>
+    </string-array>
 
 </resources>

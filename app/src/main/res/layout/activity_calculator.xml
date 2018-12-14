@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Calculator.Calculator">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/compute"
+        android:textSize="20sp"
+        android:textColor="@color/title"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/calc_spinner"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="20dp"
+        tools:targetApi="o" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2" >
+
+        <TextView
+            android:id="@+id/field1_text"
+            android:layout_width="@dimen/calc_label"
+            android:layout_height="wrap_content"
+            android:text="@string/present_value"
+            android:textColor="@color/title"
+            android:layout_marginStart="10dp" />
+
+        <EditText
+            android:id="@+id/field1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:inputType="numberDecimal"
+            android:layout_gravity="fill_horizontal" />
+
+        <TextView
+            android:layout_width="@dimen/calc_label"
+            android:layout_height="wrap_content"
+            android:text="@string/payment"
+            android:textColor="@color/title"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"/>
+
+        <Spinner
+            android:id="@+id/payment_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:entries="@array/payment_spinner"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/field2_text"
+            android:layout_width="@dimen/calc_label"
+            android:layout_height="wrap_content"
+            android:text="@string/interest_rate"
+            android:textColor="@color/title"
+            android:layout_marginStart="10dp" />
+
+        <EditText
+            android:id="@+id/field2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:inputType="numberDecimal"
+            android:layout_gravity="fill_horizontal" />
+
+        <TextView
+            android:layout_width="@dimen/calc_label"
+            android:layout_height="wrap_content"
+            android:text="@string/period"
+            android:textColor="@color/title"
+            android:layout_marginStart="10dp" />
+
+        <EditText
+            android:id="@+id/number_of_periods"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:inputType="number"
+            android:layout_gravity="fill_horizontal"
+            android:autofillHints="Days"
+            tools:targetApi="o" />
+
+        <Button
+            android:text="@string/clear"
+            android:layout_gravity="end"
+            android:onClick="clear"/>
+
+        <Button
+            android:id="@+id/btn_calc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="@string/calculate"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_width="@dimen/calc_label"
+            android:layout_height="wrap_content"
+            android:text="@string/total_interest"
+            android:textColor="@color/title"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/total_interest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/material_red_300"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/field3_text"
+            android:layout_width="@dimen/calc_label"
+            android:layout_height="wrap_content"
+            android:text="@string/future_value"
+            android:textColor="@color/title"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/field3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/material_red_300"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp" />
+
+    </GridLayout>
+
+</LinearLayout>

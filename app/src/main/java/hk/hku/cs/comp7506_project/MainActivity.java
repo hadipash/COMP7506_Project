@@ -36,6 +36,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import hk.hku.cs.comp7506_project.Calculator.Calculator;
 import hk.hku.cs.comp7506_project.Forum.ForumFragment;
 import hk.hku.cs.comp7506_project.Forum.LoginActivity;
 import hk.hku.cs.comp7506_project.Forum.NotificationsActivity;
@@ -249,15 +250,16 @@ public class MainActivity extends AppCompatActivity {
 //                            } else if (drawerItem.getIdentifier() == 9) {
 //                                intent = new Intent(MainActivity.this, SettingsActivity.class);
 //                            }
-                            switch (drawerItem.getIdentifier())
-                            {
-                                case 3: { Log.d(TAG, "Calculator menu clicked"); break; }
-                                case 4: {
+                            switch (drawerItem.getIdentifier()) {
+                                case 3:
+                                    Log.d(TAG, "Calculator menu clicked");
+                                    intent = new Intent(MainActivity.this, Calculator.class);
+                                    break;
+                                case 4:
                                     Log.d(TAG, "WikiBook menu clicked.");
                                     intent = new Intent(MainActivity.this, StockLine.class);
                                     break;
-                                }
-                                case 5: {
+                                case 5:
                                     Log.d(TAG, "TestWiki menu clicked.");
 
                                     // TODO: wiki
@@ -266,30 +268,25 @@ public class MainActivity extends AppCompatActivity {
                                     wiki.popItUp(word, MainActivity.this,
                                             getWindow().getDecorView().getRootView());
                                     break;
-                                }
-                                case 6: {
+                                case 6:
                                     intent = new Intent(MainActivity.this, LoginActivity.class);
                                     break;
-                                }
-                                case 7: {
+                                case 7:
                                     intent = new Intent(MainActivity.this, RegisterActivity.class);
                                     break;
-                                }
-                                case 8: {
+                                case 8:
                                     intent = new Intent(MainActivity.this, NotificationsActivity.class);
                                     break;
-                                }
-                                case 9: {
+                                case 9:
                                     intent = new Intent(MainActivity.this, SettingsActivity.class);
                                     break;
-                                }
 
                                 default:
                                     Log.d(TAG, "unknown drawerItem.getIdentifier.");
 //
                             }
                             if (intent != null) {
-                                MainActivity.this.startActivity(intent);
+                                startActivity(intent);
                             }
                         }
 

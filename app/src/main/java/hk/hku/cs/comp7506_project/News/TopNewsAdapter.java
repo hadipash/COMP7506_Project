@@ -27,7 +27,7 @@ public class TopNewsAdapter extends PagerAdapter {
         try {
             num = data.getInt("news_num");
             top_news_data = data.getJSONArray("news");
-        } catch (JSONException e) {
+        } catch (JSONException | NullPointerException e) {
             Log.e(TAG, "Extracting news details", e);
         }
     }
