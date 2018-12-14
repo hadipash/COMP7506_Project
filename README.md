@@ -1,4 +1,4 @@
-# We help you learn :)
+# FINKING
 
 ### Overview
 - Receive latest finace news
